@@ -1,0 +1,50 @@
+What problem I want to solve?
+
+Implement backend restful API web app that uses Google Maps
+Geocoding API.
+
+Capabilities:
+- user enters starting destination
+- user enters ending destination
+- server calculate distance from start to end destination
+- display formatted address: name of destination(physical address)
+
+How to solve this problem?
+
+1. Get the geocode using this format
+`https://maps.googleapis.com/maps/api/geocode/json?address={}&key=YOUR_API_KEY`
+2. Return
+
+
+Haversine formula for distance
+from math import radians, cos, sin, asin, sqrt
+
+def haversine(lon1, lat1, lon2, lat2):
+    """
+    Calculate the great circle distance between two points
+    on the earth (specified in decimal degrees)
+    """
+    # convert decimal degrees to radians
+    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+
+    # haversine formula
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
+    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
+    c = 2 * asin(sqrt(a))
+    r = 6371 # Radius of earth in kilometers. Use 3956 for miles
+    return c * r
+
+def calculate_distance(lat1, lon1, lat2, lon2):
+    degrees_to_radians = math.pi / 180.0
+    phi1 = (90*lat1)*degrees_to_radians
+    phi2 = (90*lat2)*degrees_to_radians
+    theta1 = log1*degrees_to_radians
+    theta2 = log2*degrees_to_radians
+
+    cos = (math.sin(phi1)*math.sin(phi2)*math.cos(theta1 * theta2)+math.cos(phi1)*math.cos(phi2))
+    arc = math.acos(cos)
+
+    distance = arc * 6378100 # Radius in meters.
+
+    return distance
