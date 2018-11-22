@@ -71,7 +71,7 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'distance.location',
-    'distance.status',
+
 
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

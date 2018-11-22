@@ -8,10 +8,15 @@ class LocationSerializer(ModelSerializer):
         model = Location
         fields = (
             'id',
-            'name',
-            'address',
-            'latitude',
-            'longitude',
+            'loc_name',
+            'loc_address',
+            'lat1',
+            'lng1',
+            'dest_name',
+            'dest_address',
+            'lat2',
+            'lng2',
+            # 'geo_distance',
         )
 
 #

@@ -5,8 +5,12 @@ from distance.location.models import Location  # Coordinate
 
 
 class LocationAdmin(admin.ModelAdmin):
-    list_display = ['name', 'address', 'latitude', 'longitude']
-    search_fields = ['name', 'address']
+    list_display = ['loc_name', 'loc_address', 'lat1', 'lng1',
+                    'dest_name', 'dest_address', 'lat2', 'lng2']
+    search_fields = ['loc_address', 'dest_address']
+
+    class Meta:
+        model = Location
 
 
 admin.site.register(Location, LocationAdmin)

@@ -48,16 +48,16 @@
 
             <form method="POST" action="locate/">{% csrf_token %}
                 <div class="input-group mt-4">
-                    <input class="form-control" type="text" name="location" placeholder="Enter your location"/>
+                    <input class="form-control" type="text" name="loc_address" placeholder="Enter your location"/>
                 </div>
                 <div class="input-group my-2">
-                    <input class="form-control" type="text" name="destination" placeholder="Enter your destination"/>
+                    <input class="form-control" type="text" name="dest_address" placeholder="Enter your destination"/>
                 </div>
                 <button type="submit" class="btn btn-primary">Get Distance</button>
             </form>
             {% if location and destination %}
             <div class="mt-4">
-                From location: <h5>{{ location }}</h5> To destination: <h5>{{ destination }}</h5> <p>The total distance is <b>{{ distance|intcomma }} miles</b>.</p>
+                From location: <h5>{{ location }}</h5> To destination: <h5>{{ destination }}</h5> <p>The total distance is <b>{{ geo_distance|intcomma }} miles</b>.</p>
             </div>
             {% endif %}
         </div>
